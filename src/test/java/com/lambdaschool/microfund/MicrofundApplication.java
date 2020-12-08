@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 // @EnableJpaAuditing
 @SpringBootApplication
-public class OktaFoundationApplication
+public class MicrofundApplication
 {
     /**
      * Main method to start the application.
