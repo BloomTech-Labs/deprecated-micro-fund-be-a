@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lambdaschool</groupId>
-    <artifactId>oktafoundation</artifactId>
+    <artifactId>microfund</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>oktafoundation</name>
-    <description>Demo project for Spring Boot</description>
+    <name>microfund</name>
+    <description>Backend for Microfund project using Spring Boot</ldescription>
 
     <properties>
         <java.version>14</java.version>
@@ -117,7 +117,7 @@
     </dependencies>
 
     <build>
-        <finalName>jrmmba-oktafoundation</finalName>
+        <finalName>Lambda Labs Microfund Project</finalName>
 
         <plugins>
             <plugin>
