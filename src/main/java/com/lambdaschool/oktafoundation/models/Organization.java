@@ -26,6 +26,13 @@ public class Organization
 
     private String description;
 
+    @OneToMany(mappedBy = "organization",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true)
+    @JsonIgnoreProperties(value = "organization",
+        allowSetters = true)
+    private List<Application> applications = new ArrayList<>();
+
     public Organization()
     {
         // Constructor for JPA

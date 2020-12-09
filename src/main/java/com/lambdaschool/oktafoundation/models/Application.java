@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "applications")
@@ -27,9 +29,18 @@ public class Application
         allowSetters = true)
     private Organization organization;
 
+    @NotNull
     private String status;
 
+    @NotNull
     private String type;
+
+    @OneToMany(mappedBy = "application",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true)
+    @JsonIgnoreProperties(value = "application",
+        allowSetters = true)
+    private List<Answer> answers = new ArrayList<>();
 
     public Application()
     {
@@ -90,5 +101,15 @@ public class Application
     public void setType(String type)
     {
         this.type = type;
+    }
+
+    public List<Answer> getAnswers()
+    {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers)
+    {
+        this.answers = answers;
     }
 }
