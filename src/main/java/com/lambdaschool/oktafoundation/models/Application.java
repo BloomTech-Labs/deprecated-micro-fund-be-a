@@ -16,13 +16,13 @@ public class Application
 
 
     @ManyToOne
-    @JoinColumn(name = "userid")
+    @JoinColumn(name = "userid", nullable = false)
     @JsonIgnoreProperties(value = "organizations",
         allowSetters = true)
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "orgid")
+    @JoinColumn(name = "orgid", nullable = false)
     @JsonIgnoreProperties(value = "users",
         allowSetters = true)
     private Organization organization;

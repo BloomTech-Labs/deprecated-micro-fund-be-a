@@ -3,6 +3,7 @@ package com.lambdaschool.oktafoundation.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "questions")
@@ -14,11 +15,12 @@ public class Question
     private long questionid;
 
     @ManyToOne
-    @JoinColumn(name = "orgid")
+    @JoinColumn(name = "orgid", nullable = false)
     @JsonIgnoreProperties(value = "questions", // not sure 'questions' is right value
         allowSetters = true)
     private Organization organization;
 
+    @NotNull
     private String question;
 
     public Question()
