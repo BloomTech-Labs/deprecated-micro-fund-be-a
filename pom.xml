@@ -117,7 +117,7 @@
     </dependencies>
 
     <build>
-        <finalName>Lambda</finalName>
+        <finalName>Lambda Labs Microfund Project</finalName>
 
         <plugins>
             <plugin>
