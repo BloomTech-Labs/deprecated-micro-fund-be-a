@@ -33,6 +33,13 @@ public class Organization
         allowSetters = true)
     private List<Application> applications = new ArrayList<>();
 
+    @OneToMany(mappedBy = "organization",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true)
+    @JsonIgnoreProperties(value = "organization",
+        allowSetters = true)
+    private Set<OrganizationMembers> members = new HashSet<>();
+
     public Organization()
     {
         // Constructor for JPA
@@ -66,6 +73,26 @@ public class Organization
     public String getDescription()
     {
         return description;
+    }
+
+    public List<Application> getApplications()
+    {
+        return applications;
+    }
+
+    public void setApplications(List<Application> applications)
+    {
+        this.applications = applications;
+    }
+
+    public Set<OrganizationMembers> getMembers()
+    {
+        return members;
+    }
+
+    public void setMembers(Set<OrganizationMembers> members)
+    {
+        this.members = members;
     }
 
     public void setDescription(String description)
