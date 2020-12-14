@@ -34,6 +34,14 @@ public class SeedData
     @Autowired
     OrganizationService orgService;
 
+    @Autowired
+    ApplicationService appService;
+
+    @Autowired
+    QuestionService qService;
+
+    @Autowired
+    AnswerService anService;
     /**
      * Generates test, seed data for our application
      * First a set of known data is seeded into our database.
@@ -122,6 +130,36 @@ public class SeedData
         // APPLICATIONS
 
         // main org app
+        Application app1 =  new Application(u2, o1);
+        app1.setStatus("pending");
+        app1.setType("partner");
+
+        appService.save(app1);
+
+        // QUESTIONS
+
+        // question for main
+        Question q1 = new Question(o1, "what's your name?");
+        Question q2 = new Question(o1, "what would be the home location of your " +
+            "organization?");
+
+        qService.save(q1);
+        qService.save(q2);
+
+        // ANSWERS
+
+        // answers for curts app to main.
+        Answer ans1 = new Answer(app1, q1, "Dr. Curtis Connors");
+        Answer ans2 = new Answer(app1, q2, "Lorem ipsum dolor sit amet, consectetur " +
+            "adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore " +
+            "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco " +
+            "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in " +
+            " reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla " +
+            "pariatur.  Excepteur sint occaecat cupidatat non proident, sunt in culpa " +
+            "qui officia deserunt mollit anim id est laborum.");
+
+        anService.save(ans1);
+        anService.save(ans2);
 
 
 
