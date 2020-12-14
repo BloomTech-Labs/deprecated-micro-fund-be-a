@@ -54,6 +54,7 @@ public class QuestionServiceImpl
 
         Question newQuestion = findQuestionById(id);
         newQuestion.setQuestion(question.getQuestion());
+        newQuestion.setOrganization(question.getOrganization());
 
         return questionrepos.save(newQuestion);
 
