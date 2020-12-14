@@ -26,13 +26,15 @@ public interface OrganizationService
      */
     Organization findOrgByName(String name);
 
+    List<Organization> findByNameContaining(String name);
+
     /**
      * Returns the org with the given primary key.
      *
      * @param id The primary key (long) of the Org you seek.
      * @return The given org or throws an exception if not found.
      */
-    Organization finOrgById(long id);
+    Organization findOrgById(long id);
 
     /**
      * Deletes the Organization record from the database based off of the provided primary key

@@ -8,5 +8,7 @@ import java.util.List;
 public interface OrganizationRepository extends CrudRepository<Organization, Long>
 {
     Organization findByName(String name);
-//    List<Organization> findBy
+
+    List<Organization> findByNameContainingIgnoreCase(String name);
+
 }

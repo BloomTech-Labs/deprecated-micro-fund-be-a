@@ -1,6 +1,8 @@
 package com.lambdaschool.microfund;
 
 import com.lambdaschool.microfund.models.*;
+import com.lambdaschool.microfund.services.ApplicationService;
+import com.lambdaschool.microfund.services.OrganizationService;
 import com.lambdaschool.microfund.services.RoleService;
 import com.lambdaschool.microfund.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,17 +33,17 @@ public class SeedData
     @Autowired
     UserService userService;
 
-    @Autowired
-    OrganizationService orgService;
+//    @Autowired
+//    OrganizationService orgService;
 
     @Autowired
     ApplicationService appService;
-
-    @Autowired
-    QuestionService qService;
-
-    @Autowired
-    AnswerService anService;
+//
+//    @Autowired
+//    QuestionService qService;
+//
+//    @Autowired
+//    AnswerService anService;
     /**
      * Generates test, seed data for our application
      * First a set of known data is seeded into our database.
@@ -106,65 +108,60 @@ public class SeedData
         userService.save(u3);
 
 
-        // ORGANIZATIONS
-
-        // main org
-        Organization o1 = new Organization("Main Org Title");
-        o1.setDescription("Charity organization dedicated to helping real people on the" +
-            " ground.");
-        o1.getMembers()
-            .add(new OrganizationMembers(u1, o1));
-
-        // partner org
-        Organization o2 = new Organization("Partner Org Title");
-        o2.setDescription("Agricultural Machinery Training");
-        o2.getMembers()
-            .add(new OrganizationMembers(u2, o2));
-        o2.getMembers()
-            .add(new OrganizationMembers(u3, o2));
-
-        orgService.save(o1);
-        orgService.save(o2);
-
-
-        // APPLICATIONS
-
-        // main org app
-        Application app1 =  new Application(u2, o1);
-        app1.setStatus("pending");
-        app1.setType("partner");
-
-        appService.save(app1);
-
-        // QUESTIONS
-
-        // question for main
-        Question q1 = new Question(o1, "what's your name?");
-        Question q2 = new Question(o1, "what would be the home location of your " +
-            "organization?");
-
-        qService.save(q1);
-        qService.save(q2);
-
-        // ANSWERS
-
-        // answers for curts app to main.
-        Answer ans1 = new Answer(app1, q1, "Dr. Curtis Connors");
-        Answer ans2 = new Answer(app1, q2, "Lorem ipsum dolor sit amet, consectetur " +
-            "adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore " +
-            "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco " +
-            "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in " +
-            " reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla " +
-            "pariatur.  Excepteur sint occaecat cupidatat non proident, sunt in culpa " +
-            "qui officia deserunt mollit anim id est laborum.");
-
-        anService.save(ans1);
-        anService.save(ans2);
-
-
-
-
-
+//        // ORGANIZATIONS
+//
+//        // main org
+//        Organization o1 = new Organization("Main Org Title");
+//        o1.setDescription("Charity organization dedicated to helping real people on the" +
+//            " ground.");
+//        o1.getMembers()
+//            .add(new OrganizationMembers(u1, o1));
+//
+//        // partner org
+//        Organization o2 = new Organization("Partner Org Title");
+//        o2.setDescription("Agricultural Machinery Training");
+//        o2.getMembers()
+//            .add(new OrganizationMembers(u2, o2));
+//        o2.getMembers()
+//            .add(new OrganizationMembers(u3, o2));
+//
+//        orgService.save(o1);
+//        orgService.save(o2);
+//
+//
+//        // APPLICATIONS
+//
+//        // main org app
+//        Application app1 =  new Application(u2, o1);
+//        app1.setStatus("pending");
+//        app1.setType("partner");
+//
+//        appService.save(app1);
+//
+//        // QUESTIONS
+//
+//        // question for main
+//        Question q1 = new Question(o1, "what's your name?");
+//        Question q2 = new Question(o1, "what would be the home location of your " +
+//            "organization?");
+//
+//        qService.save(q1);
+//        qService.save(q2);
+//
+//        // ANSWERS
+//
+//        // answers for curts app to main.
+//        Answer ans1 = new Answer(app1, q1, "Dr. Curtis Connors");
+//        Answer ans2 = new Answer(app1, q2, "Lorem ipsum dolor sit amet, consectetur " +
+//            "adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore " +
+//            "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco " +
+//            "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in " +
+//            " reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla " +
+//            "pariatur.  Excepteur sint occaecat cupidatat non proident, sunt in culpa " +
+//            "qui officia deserunt mollit anim id est laborum.");
+//
+//        anService.save(ans1);
+//        anService.save(ans2);
 
     }
 }
