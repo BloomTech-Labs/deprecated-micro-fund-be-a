@@ -12,7 +12,7 @@
     <artifactId>microfund</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>microfund</name>
-    <description>Backend for Microfund project using Spring Boot</ldescription>
+    <description>Backend for Microfund project using Spring Boot</description>
 
     <properties>
         <java.version>14</java.version>
