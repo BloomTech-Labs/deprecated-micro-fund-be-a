@@ -32,7 +32,7 @@ public class Swagger2Config
         return new Docket(DocumentationType.SWAGGER_2)
             .select()
             .apis(RequestHandlerSelectors
-                .basePackage("com.lambdaschool.foundation"))
+                .basePackage("com.lambdaschool.microfund"))
             .paths(PathSelectors.regex("/.*"))
             .build()
             .apiInfo(apiEndPointsInfo());
@@ -45,11 +45,8 @@ public class Swagger2Config
      */
     private ApiInfo apiEndPointsInfo()
     {
-        return new ApiInfoBuilder().title("Java Spring BE Foundation")
-            .description("Java Spring Backend Foundation and Scaffolding")
-            .contact(new Contact("John Mitchell",
-                "http://www.lambdaschool.com",
-                "john@lambdaschool.com"))
+        return new ApiInfoBuilder().title("Java Spring BE for Microfund")
+            .description("Java Spring Backend")
             .license("MIT")
             .licenseUrl("https://github.com/LambdaSchool/java-springfoundation/blob/master/LICENSE")
             .version("1.0.0")
