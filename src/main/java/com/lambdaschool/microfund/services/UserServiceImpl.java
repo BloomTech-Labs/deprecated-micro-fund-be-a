@@ -98,6 +98,22 @@ public class UserServiceImpl
             newUser.setUserid(user.getUserid());
         }
 
+        if (user.getFirstname() != null)
+        {
+            newUser.setFirstname(user.getFirstname());
+        }
+
+        if (user.getLastname() != null)
+        {
+            newUser.setLastname(user.getLastname());
+        }
+
+        if (user.getDescription() != null)
+        {
+            newUser.setDescription(user.getDescription());
+        }
+
+
         newUser.setUsername(user.getUsername()
             .toLowerCase());
 
