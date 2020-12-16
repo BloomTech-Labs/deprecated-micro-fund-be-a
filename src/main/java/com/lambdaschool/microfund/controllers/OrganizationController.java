@@ -35,10 +35,4 @@ public class OrganizationController
         Organization o = orgService.findOrgById(orgId);
         return new ResponseEntity<>(o, HttpStatus.OK);
     }
-
-//    @GetMapping(value = "/{orgId}", produces = "application/json")
-//    public ResponseEntity<?> getOrgQuestions(@PathVariable Long orgId)
-//    {
-//        return null;
-//    }
 }
