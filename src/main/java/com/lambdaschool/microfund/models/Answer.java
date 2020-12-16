@@ -27,6 +27,7 @@ public class Answer
     private Question question;
 
     @NotNull
+    @Column(columnDefinition = "TEXT")
     private String answer;
 
     public Answer()
