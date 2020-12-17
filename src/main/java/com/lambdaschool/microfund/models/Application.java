@@ -19,13 +19,13 @@ public class Application
 
     @ManyToOne
     @JoinColumn(name = "userid", nullable = false)
-    @JsonIgnoreProperties(value = "organizations",
+    @JsonIgnoreProperties(value = "organization",
         allowSetters = true)
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "orgid", nullable = false)
-    @JsonIgnoreProperties(value = "users",
+    @JsonIgnoreProperties(value = "user",
         allowSetters = true)
     private Organization organization;
 
@@ -38,7 +38,7 @@ public class Application
     @OneToMany(mappedBy = "application",
         cascade = CascadeType.ALL,
         orphanRemoval = true)
-    @JsonIgnoreProperties(value = "application",
+    @JsonIgnoreProperties(value = "applications",
         allowSetters = true)
     private List<Answer> answers = new ArrayList<>();
 

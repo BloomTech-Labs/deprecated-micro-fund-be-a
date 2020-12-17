@@ -29,7 +29,7 @@ public class Organization
     @OneToMany(mappedBy = "organization",
         cascade = CascadeType.ALL,
         orphanRemoval = true)
-    @JsonIgnoreProperties(value = "organization",
+    @JsonIgnoreProperties(value={"organization", "application", "answers"},
         allowSetters = true)
     private List<Application> applications = new ArrayList<>();
 
@@ -43,7 +43,7 @@ public class Organization
     @OneToMany(mappedBy =  "organization",
         cascade = CascadeType.ALL,
         orphanRemoval = true)
-    @JsonIgnoreProperties(value = "organization",
+    @JsonIgnoreProperties(value={"organization"},
         allowSetters = true)
     private List<Question> questions = new ArrayList<>();
 

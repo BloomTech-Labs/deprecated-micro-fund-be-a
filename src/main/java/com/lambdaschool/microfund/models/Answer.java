@@ -22,7 +22,7 @@ public class Answer
 
     @ManyToOne
     @JoinColumn(name = "questionid", nullable = false)
-    @JsonIgnoreProperties(value = "applications",
+    @JsonIgnoreProperties(value = "application",
         allowSetters = true)
     private Question question;
 
