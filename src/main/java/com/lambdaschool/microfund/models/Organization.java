@@ -1,6 +1,5 @@
 package com.lambdaschool.microfund.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -29,7 +28,8 @@ public class Organization
     @OneToMany(mappedBy = "organization",
         cascade = CascadeType.ALL,
         orphanRemoval = true)
-    @JsonIgnoreProperties(value={"organization", "application", "answers"},
+    @JsonIgnoreProperties(value={"organization", "application", "answers",
+        "applications"},
         allowSetters = true)
     private List<Application> applications = new ArrayList<>();
 

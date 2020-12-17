@@ -25,7 +25,7 @@ public class Application
 
     @ManyToOne
     @JoinColumn(name = "orgid", nullable = false)
-    @JsonIgnoreProperties(value = "user",
+    @JsonIgnoreProperties(value = {"user", "applications", "members"},
         allowSetters = true)
     private Organization organization;
 

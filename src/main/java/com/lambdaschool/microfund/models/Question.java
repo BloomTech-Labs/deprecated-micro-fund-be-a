@@ -16,7 +16,7 @@ public class Question
 
     @ManyToOne
     @JoinColumn(name = "orgid", nullable = false)
-    @JsonIgnoreProperties(value = "questions", // not sure 'questions' is right value
+    @JsonIgnoreProperties(value = {"questions", "members"},
         allowSetters = true)
     private Organization organization;
 

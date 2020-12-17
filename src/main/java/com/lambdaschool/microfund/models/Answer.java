@@ -16,7 +16,7 @@ public class Answer
 
     @ManyToOne
     @JoinColumn(name = "applicationid", nullable = false)
-    @JsonIgnoreProperties(value = "questions",
+    @JsonIgnoreProperties(value = {"questions", "answers"},
         allowSetters = true)
     private Application application;
 

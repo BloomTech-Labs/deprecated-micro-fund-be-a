@@ -1,7 +1,7 @@
 package com.lambdaschool.microfund.controllers;
 
-import com.lambdaschool.microfund.models.Organization;
-import com.lambdaschool.microfund.services.OrganizationService;
+import com.lambdaschool.microfund.models.Application;
+import com.lambdaschool.microfund.services.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,23 +13,23 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/orgs")
-public class OrganizationController
+@RequestMapping("/apps")
+public class ApplicationController
 {
     @Autowired
-    private OrganizationService orgService;
+    private ApplicationService appService;
 
     @GetMapping(value = "/all", produces = "application/json")
     public ResponseEntity<?> listAllOrgs()
     {
-        List<Organization> orgs = orgService.findAll();
-        return new ResponseEntity<>(orgs, HttpStatus.OK);
+        List<Application> apps = appService.findAll();
+        return new ResponseEntity<>(apps, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{appId}", produces = "application/json")
-    public ResponseEntity<?> getOrgById(@PathVariable Long appId)
+    @GetMapping(value = "/{orgId}", produces = "application/json")
+    public ResponseEntity<?> getOrgById(@PathVariable Long orgId)
     {
-        Organization o = orgService.findOrgById(appId);
-        return new ResponseEntity<>(o, HttpStatus.OK);
+        Application a = appService.findAppById(orgId);
+        return new ResponseEntity<>(a, HttpStatus.OK);
     }
 }
