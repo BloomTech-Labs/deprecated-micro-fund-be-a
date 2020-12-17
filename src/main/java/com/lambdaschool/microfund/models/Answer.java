@@ -16,13 +16,13 @@ public class Answer
 
     @ManyToOne
     @JoinColumn(name = "applicationid", nullable = false)
-    @JsonIgnoreProperties(value = "questions",
+    @JsonIgnoreProperties(value = {"questions", "answers"},
         allowSetters = true)
     private Application application;
 
     @ManyToOne
     @JoinColumn(name = "questionid", nullable = false)
-    @JsonIgnoreProperties(value = "applications",
+    @JsonIgnoreProperties(value = "application",
         allowSetters = true)
     private Question question;
 
