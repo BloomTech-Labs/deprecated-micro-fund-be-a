@@ -35,6 +35,8 @@ public class Application
     @NotNull
     private String type;
 
+    private String memberresponse;
+
     @OneToMany(mappedBy = "application",
         cascade = CascadeType.ALL,
         orphanRemoval = true)
@@ -111,5 +113,15 @@ public class Application
     public void setAnswers(List<Answer> answers)
     {
         this.answers = answers;
+    }
+
+    public String getMemberresponse()
+    {
+        return memberresponse;
+    }
+
+    public void setMemberresponse(String memberresponse)
+    {
+        this.memberresponse = memberresponse;
     }
 }
