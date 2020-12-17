@@ -26,10 +26,10 @@ public class OrganizationController
         return new ResponseEntity<>(orgs, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{appId}", produces = "application/json")
-    public ResponseEntity<?> getOrgById(@PathVariable Long appId)
+    @GetMapping(value = "/{orgId}", produces = "application/json")
+    public ResponseEntity<?> getOrgById(@PathVariable Long orgId)
     {
-        Organization o = orgService.findOrgById(appId);
+        Organization o = orgService.findOrgById(orgId);
         return new ResponseEntity<>(o, HttpStatus.OK);
     }
 }

@@ -20,16 +20,16 @@ public class ApplicationController
     private ApplicationService appService;
 
     @GetMapping(value = "/all", produces = "application/json")
-    public ResponseEntity<?> listAllOrgs()
+    public ResponseEntity<?> listAllApps()
     {
         List<Application> apps = appService.findAll();
         return new ResponseEntity<>(apps, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{orgId}", produces = "application/json")
-    public ResponseEntity<?> getOrgById(@PathVariable Long orgId)
+    @GetMapping(value = "/{appId}", produces = "application/json")
+    public ResponseEntity<?> getAppById(@PathVariable Long appId)
     {
-        Application a = appService.findAppById(orgId);
+        Application a = appService.findAppById(appId);
         return new ResponseEntity<>(a, HttpStatus.OK);
     }
 }
