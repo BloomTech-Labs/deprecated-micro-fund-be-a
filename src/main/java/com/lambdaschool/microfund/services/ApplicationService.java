@@ -61,4 +61,6 @@ public interface ApplicationService
      * Deletes all applications and their associated records from the database
      */
     public void deleteAll();
+
+    void memberResponse(long appid);
 }

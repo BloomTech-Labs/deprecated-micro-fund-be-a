@@ -2,8 +2,7 @@ package com.lambdaschool.microfund.services;
 
 import com.lambdaschool.microfund.exceptions.ResourceFoundException;
 import com.lambdaschool.microfund.exceptions.ResourceNotFoundException;
-import com.lambdaschool.microfund.models.Answer;
-import com.lambdaschool.microfund.models.Application;
+import com.lambdaschool.microfund.models.*;
 import com.lambdaschool.microfund.repository.ApplicationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +15,12 @@ public class ApplicationServiceImpl implements ApplicationService
 {
     @Autowired
     ApplicationRepository appRepos;
+
+    @Autowired
+    OrganizationService organizationService;
+
+    @Autowired
+    UserService userService;
 
     @Override
     public List<Application> findAll()
@@ -105,6 +110,11 @@ public class ApplicationServiceImpl implements ApplicationService
             app.setUser(application.getUser());
         }
 
+        if(application.getMemberresponse() != null)
+        {
+            app.setMemberresponse(application.getMemberresponse().toLowerCase());
+        }
+
         if(application.getAnswers().size() > 0)
         {
             app.getAnswers()
@@ -125,6 +135,21 @@ public class ApplicationServiceImpl implements ApplicationService
     public void deleteAll()
     {
         appRepos.deleteAll();
+
+    }
+
+    @Override
+    public void memberResponse(long appid)
+    {
+        Application app = findAppById(appid);
+
+        if (app.getMemberresponse().equalsIgnoreCase("accept")){
+            Organization org = organizationService.findOrgById(app.getOrganization().getOrgid());
+            User user = userService.findUserById(app.getUser().getUserid());
+
+            org.getMembers().add( new OrganizationMembers(user, org));
+            organizationService.update(org,org.getOrgid());
+        }
 
     }
 }
