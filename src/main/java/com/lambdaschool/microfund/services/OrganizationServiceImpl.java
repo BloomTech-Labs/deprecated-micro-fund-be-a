@@ -102,6 +102,13 @@ public class OrganizationServiceImpl
                 .add(new OrganizationMembers(orgM.getUser(), newOrg));
         }
 
+        newOrg.getQuestions().clear();
+        for (Question question : org.getQuestions())
+        {
+            newOrg.getQuestions()
+                .add(new Question(newOrg, question.getQuestion()));
+        }
+
         return orgrepos.save(newOrg);
     }
 
@@ -119,6 +126,11 @@ public class OrganizationServiceImpl
                 .toLowerCase());
         }
 
+        if (org.getDescription() != null)
+        {
+            currentOrg.setDescription(org.getDescription());
+        }
+
         if (org.getMembers()
             .size() > 0)
         {
@@ -133,6 +145,18 @@ public class OrganizationServiceImpl
                     .add(new OrganizationMembers(addUser, currentOrg));
             }
         }
+
+        if (org.getQuestions()
+            .size() > 0)
+        {
+            currentOrg.getQuestions().clear();
+            for (Question question : org.getQuestions())
+            {
+                currentOrg.getQuestions()
+                    .add(new Question(currentOrg, question.getQuestion()));
+            }
+        }
+
 
         return orgrepos.save(currentOrg);
     }

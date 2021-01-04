@@ -83,10 +83,10 @@ public class OrganizationController
         @RequestBody
             Organization updateOrg,
         @PathVariable
-            long id)
+            long orgid)
     {
         orgService.update(updateOrg,
-            id);
+            orgid);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
