@@ -187,6 +187,21 @@ public class UserServiceImpl
                 }
             }
 
+            if (user.getFirstname() != null)
+            {
+                currentUser.setFirstname(user.getFirstname());
+            }
+
+            if (user.getLastname() != null)
+            {
+                currentUser.setLastname(user.getLastname());
+            }
+
+            if (user.getDescription() != null)
+            {
+                currentUser.setDescription(user.getDescription());
+            }
+
             return userrepos.save(currentUser);
         } else
         {
